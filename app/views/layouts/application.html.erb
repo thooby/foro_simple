@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ForumSimple</title>
+  <title>Forum Simple</title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
 </head>
 <body>
-
+ <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+<% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
 <%= yield %>
-
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+<% end %>
 </body>
 </html>
