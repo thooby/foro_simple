@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(:version => 20121221184334) do
 
-  create_table "categories", :force => true do |t|
+  create_table "frm_categories", :force => true do |t|
     t.string   "title"
     t.boolean  "state",      :default => true
     t.integer  "position",   :default => 0
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20121221184334) do
     t.datetime "updated_at"
   end
 
-  create_table "forums", :force => true do |t|
+  create_table "frm_forums", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.boolean  "state",        :default => true
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20121221184334) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "frm_posts", :force => true do |t|
     t.text     "body"
     t.integer  "forum_id"
     t.integer  "topic_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20121221184334) do
     t.datetime "updated_at"
   end
 
-  create_table "topics", :force => true do |t|
+  create_table "frm_topics", :force => true do |t|
     t.string   "title"
     t.integer  "hits",        :default => 0
     t.boolean  "sticky",      :default => false

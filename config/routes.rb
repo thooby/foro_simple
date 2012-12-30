@@ -1,10 +1,10 @@
 ForumSimple::Application.routes.draw do
-  resources :categories, :except => [:index, :show]
-  resources :forums, :except => :index do
-    resources :topics, :shallow => true, :except => :index do
-      resources :posts, :shallow => true, :except => [:index, :show]
+  resources :frm_categories, :except => [:index, :show]
+  resources :frm_forums, :except => :index do
+    resources :frm_topics, :shallow => true, :except => :index do
+      resources :frm_posts, :shallow => true, :except => [:index, :show]
     end
-    root :to => 'categories#index', :via => :get
+    root :to => 'frm_categories#index', :via => :get
   end
 
   # The priority is based upon order of creation:
