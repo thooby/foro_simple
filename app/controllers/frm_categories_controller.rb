@@ -10,7 +10,7 @@ class FrmCategoriesController < ApplicationController
   def create
     @category = FrmCategory.new(params[:frm_category])
     if @category.save
-      flash[:notice] = "category was successfully created."
+      flash[:notice] = :category_was_successfully_created
       redirect_to frm_forums_url
     else
       render :action => 'new'
@@ -25,7 +25,7 @@ class FrmCategoriesController < ApplicationController
     @category = FrmCategory.find(params[:id])
     
     if @category.update_attributes(params[:frm_category])
-      flash[:notice] = "category was updated successfully."
+      flash[:notice] = :category_was_updated_successfully
       redirect_to frm_forums_url
     end
   end
@@ -34,7 +34,7 @@ class FrmCategoriesController < ApplicationController
     @category = FrmCategory.find(params[:id])
     
     if @category.destroy
-      flash[:notice] = "category was deleted."
+      flash[:notice] = :category_was_deleted
       redirect_to frm_forums_url
     end
   end

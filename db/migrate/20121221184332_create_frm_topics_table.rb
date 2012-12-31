@@ -1,12 +1,12 @@
 class CreateFrmTopicsTable < ActiveRecord::Migration
   def self.up
-    create_table :topics, :force => true do |t|
+    create_table :frm_topics, :force => true do |t|
       t.string   :title
       t.integer  :hits, :default => 0
       t.boolean  :sticky, :default => false
       t.boolean  :locked, :default => false
-      t.integer  :posts_count
-      t.integer  :frn_forum_id
+      t.integer  :frm_posts_count
+      t.integer  :frm_forum_id
       t.integer  :user_id
 
       t.timestamps
@@ -14,6 +14,6 @@ class CreateFrmTopicsTable < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :topics
+    drop_table :frm_topics
   end
 end

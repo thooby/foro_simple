@@ -1,6 +1,6 @@
 class CreateFrmPostsTable < ActiveRecord::Migration
   def self.up
-    create_table :posts, :force => true do |t|
+    create_table :frm_posts, :force => true do |t|
       t.text     :body
       t.integer  :frm_forum_id
       t.integer  :frm_topic_id
@@ -11,6 +11,6 @@ class CreateFrmPostsTable < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :posts
+    drop_table :frm_posts
   end
 end

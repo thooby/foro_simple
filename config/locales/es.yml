@@ -35,6 +35,7 @@ es:
   new_topic: "Añadir Asunto"
   post: "Mensaje"
   Post: "Mensaje"
+  Create: "Crear"
   post_was_successfully_created: "Se creó el mensaje."
   post_was_successfully_destroyed: "Se eliminó el mensaje"
   post_was_successfully_updated: "El mensaje fue actualizada"

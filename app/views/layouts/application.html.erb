@@ -7,15 +7,15 @@
 </head>
 <body>
  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+    <div class="notice"><%= t flash[:notice] %></div>
   <% end %>
 <% if flash[:alert] %>
-    <p class="flash-error"><%= flash[:alert] %></p>
+    <p class="flash-error"><%= t flash[:alert] %></p>
   <% end %>
 <%= yield %>
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <%= content_tag :div, t(msg), :id => "flash_#{name}" %>
   <% end %>
 <% end %>
 </body>

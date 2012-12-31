@@ -10,7 +10,7 @@ class FrmForumsController < ApplicationController
   def create
     @forum = FrmForum.new(params[:frm_forum])  
     if @forum.save
-      flash[:notice] = "Forum was successfully created."
+      flash[:notice] = :forum_was_successfully_created
       redirect_to frm_forums_url
     else
       render :action => 'new'
@@ -23,9 +23,8 @@ class FrmForumsController < ApplicationController
   
   def update
     @forum = FrmForum.find(params[:id])
-    
-    if @forum.update_attributes(params[:forum])
-      flash[:notice] = "Forum was updated successfully."
+    if @forum.update_attributes(params[:frm_forum])
+      flash[:notice] = :forum_was_updated_successfully
       redirect_to frm_forum_url(@forum)
     end
   end
@@ -34,7 +33,7 @@ class FrmForumsController < ApplicationController
     @forum = FrmForum.find(params[:id])
     
     if @forum.destroy
-      flash[:notice] = "Category was deleted."
+      flash[:notice] = :forum_was_deleted
       redirect_to frm_forums_url
     end
   end

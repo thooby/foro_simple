@@ -18,7 +18,7 @@ class FrmPostsController < ApplicationController
     @post.user = current_user
     
     if @post.save
-      flash[:notice] = "FrmPost was successfully created."
+      flash[:notice] = :post_was_successfully_created
       redirect_to frm_topic_path(@post.frm_topic)
     else
       render :action => 'new'
@@ -33,7 +33,7 @@ class FrmPostsController < ApplicationController
     @post = FrmPost.find(params[:id])
 
     if @post.update_attributes(params[:frm_post])
-      flash[:notice] = "Post was successfully updated."
+      flash[:notice] = :post_was_successfully_updated
       redirect_to frm_topic_path(@post.frm_topic)
     end
   end
@@ -43,12 +43,12 @@ class FrmPostsController < ApplicationController
     
     if @post.frm_topic.frm_posts_count > 1
       if @post.destroy
-        flash[:notice] = "FrmPost was successfully destroyed."
+        flash[:notice] = :post_was_successfully_destroyed
         redirect_to frm_topic_path(@post.frm_topic)
       end
     else
       if @post.frm_topic.destroy
-        flash[:notice] = "Topic was successfully deleted."
+        flash[:notice] = :topic_was_successfully_deleted
         redirect_to frm_forum_path(@post.frm_forum)
       end
     end
